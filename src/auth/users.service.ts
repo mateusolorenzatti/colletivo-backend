@@ -5,10 +5,10 @@ import { Repository } from "typeorm";
 import { User } from "./entities/user.entity";
 
 @Injectable()
-export class UsersService {
+export class UserService {
     constructor(
         @InjectRepository(User)
-        private usersRepository: Repository<User>,
+        private userRepository: Repository<User>,
     ){}
 
     async getUserById(id: string): Promise<User> {
@@ -16,7 +16,7 @@ export class UsersService {
         let notFoundMessage = `User with ID ${id} not found`
 
         try{
-            found = await this.usersRepository.findOne({ where: { id } })
+            found = await this.userRepository.findOne({ where: { id } })
         }catch(QueryFailedError){
             throw new NotFoundException(notFoundMessage)
         } 

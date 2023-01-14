@@ -10,7 +10,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
   // Pipes and Interceptors
-  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalPipes(new ValidationPipe({
+    forbidUnknownValues: false
+  }))
   app.useGlobalInterceptors(new TransformInterceptor())
 
   // Swagger Configuration

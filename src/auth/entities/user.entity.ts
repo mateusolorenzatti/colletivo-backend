@@ -1,5 +1,4 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-;
 import { UserLevel } from "../enums/user-level.enum";
 
 @Entity()

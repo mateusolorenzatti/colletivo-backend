@@ -5,10 +5,12 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { AgencyModule } from './agency/agency.module';
 
 @Module({
   imports: [
     AuthModule,
+    AgencyModule,
 
     ConfigModule.forRoot({
       envFilePath: ['.env.development.local', '.env.development'],

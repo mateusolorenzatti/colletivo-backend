@@ -1,3 +1,4 @@
+import { Route } from 'src/routes/entities/route.entity'
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
@@ -22,4 +23,7 @@ export class Agency {
 
     @Column({ nullable: true })
     fare_url: string
+
+    @OneToMany((_type) => Route, route => route.agency)
+    routes: Route[]
 }

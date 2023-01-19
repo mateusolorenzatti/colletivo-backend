@@ -1,5 +1,6 @@
 import { Agency } from 'src/agency/entities/agency.entity'
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Trip } from 'src/trips/entities/trip.entity'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 
 @Entity()
 export class Route {
@@ -38,4 +39,7 @@ export class Route {
     
     @Column({ nullable: true })
     eligibility_restricted: number
+
+    @OneToMany((_type) => Trip, trip => trip.route)
+    trips: Trip[]
 }

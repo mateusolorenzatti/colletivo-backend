@@ -15,6 +15,7 @@ import { AgencyModule } from 'src/agency/agency.module';
     forwardRef(() => AgencyModule),
   ],
   controllers: [RoutesController],
-  providers: [RoutesService]
+  providers: [RoutesService],
+  exports: [RoutesService]
 })
 export class RoutesModule {}

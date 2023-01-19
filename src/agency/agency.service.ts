@@ -63,7 +63,13 @@ export class AgencyService {
   }
 
   async remove(id: string): Promise<void> {
-    const result = await this.agencyRepository.delete(id)
+    let result
+    
+    try{
+      result = await this.agencyRepository.delete(id)
+    }catch (QueryFailedError){
+      throw new NotFoundException(`Agency with ID ${id} not found`)
+    }
 
     if (result.affected === 0)
       throw new NotFoundException(`Agency with ID ${id} not found`)

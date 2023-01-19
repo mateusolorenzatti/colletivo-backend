@@ -9,10 +9,10 @@ export class Agency {
     @Column()
     name: string
     
-    @Column()
+    @Column({ nullable: true })
     phone: string
     
-    @Column()
+    @Column({ nullable: true })
     lang: string
     
     @Column({ nullable: true })

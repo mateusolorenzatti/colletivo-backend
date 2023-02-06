@@ -1,10 +1,12 @@
-import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, UseGuards } from '@nestjs/common';
 import { RoutesService } from './routes.service';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
 import { Route } from './entities/route.entity';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('routes')
+@UseGuards(AuthGuard())
 export class RoutesController {
   constructor(private readonly routesService: RoutesService) {}
 

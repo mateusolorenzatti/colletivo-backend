@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete, UseGuards, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, UseGuards, Put, Query } from '@nestjs/common';
 import { ShapesService } from './shapes.service';
 import { CreateShapeDto } from './dto/create-shape.dto';
 import { UpdateShapeDto } from './dto/update-shape.dto';
@@ -16,7 +16,7 @@ export class ShapesController {
   }
 
   @Get()
-  findAll(@Param('shape_id') shape_id: string): Promise<Shape[]> {
+  findAll(@Query('shape_id') shape_id: string): Promise<Shape[]> {
     return this.shapesService.findAll(+shape_id);
   }
 

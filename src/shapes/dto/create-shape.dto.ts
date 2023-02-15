@@ -1,4 +1,4 @@
-import { IsNumber, IsOptional } from "class-validator"
+import { IsLatitude, IsLongitude, IsNumber, IsOptional } from "class-validator"
 
 export class CreateShapeDto {
     @IsNumber()
@@ -7,10 +7,10 @@ export class CreateShapeDto {
     @IsNumber()
     pt_sequence: number
 
-    @IsNumber()
+    @IsLatitude()
     pt_lat: string
 
-    @IsNumber()
+    @IsLongitude()
     pt_lon: string
 
     @IsOptional()    

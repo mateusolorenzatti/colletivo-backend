@@ -9,6 +9,7 @@ import { AgencyModule } from './agency/agency.module';
 import { RoutesModule } from './routes/routes.module';
 import { TripsModule } from './trips/trips.module';
 import { ShapesModule } from './shapes/shapes.module';
+import { StopsModule } from './stops/stops.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { ShapesModule } from './shapes/shapes.module';
     RoutesModule,
     TripsModule,
     ShapesModule,
+    StopsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

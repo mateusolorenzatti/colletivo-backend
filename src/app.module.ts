@@ -10,6 +10,7 @@ import { RoutesModule } from './routes/routes.module';
 import { TripsModule } from './trips/trips.module';
 import { ShapesModule } from './shapes/shapes.module';
 import { StopsModule } from './stops/stops.module';
+import { StopTimesModule } from './stop-times/stop-times.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { StopsModule } from './stops/stops.module';
     TripsModule,
     ShapesModule,
     StopsModule,
+    StopTimesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

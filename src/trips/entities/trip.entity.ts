@@ -1,5 +1,6 @@
 import { Route } from 'src/routes/entities/route.entity'
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { StopTime } from 'src/stop-times/entities/stop-time.entity'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 
 @Entity()
 export class Trip {
@@ -11,6 +12,9 @@ export class Trip {
 
     // ToDo:
     // shape_id
+
+    @OneToMany((_type) => StopTime, stop_time => stop_time.trip)
+    stop_times: StopTime[]
     
     @Column({ nullable: true })
     service_id: string

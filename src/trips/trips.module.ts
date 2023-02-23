@@ -5,6 +5,7 @@ import { Trip } from './entities/trip.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/auth/auth.module';
 import { RoutesModule } from 'src/routes/routes.module';
+import { StopTimesModule } from 'src/stop-times/stop-times.module';
 
 @Module({
   imports: [
@@ -12,8 +13,10 @@ import { RoutesModule } from 'src/routes/routes.module';
 
     forwardRef(() => AuthModule),
     forwardRef(() => RoutesModule),
+    forwardRef(() => StopTimesModule),
   ],
   controllers: [TripsController],
-  providers: [TripsService]
+  providers: [TripsService],
+  exports: [TripsService]
 })
 export class TripsModule {}

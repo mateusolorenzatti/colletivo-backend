@@ -1,9 +1,13 @@
+import { StopTime } from 'src/stop-times/entities/stop-time.entity'
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 
 @Entity()
 export class Stop {
     @PrimaryGeneratedColumn('uuid')
     id: string
+
+    @OneToMany((_type) => StopTime, stop_time => stop_time.stop)
+    stop_times: StopTime[]
 
     @Column({ nullable: true })
     stop_code: string

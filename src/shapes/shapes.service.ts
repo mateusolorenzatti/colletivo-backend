@@ -1,5 +1,6 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { TripsService } from 'src/trips/trips.service';
 import { Repository } from "typeorm";
 
 import { CreateShapeDto } from './dto/create-shape.dto';
@@ -10,7 +11,8 @@ import { Shape } from './entities/shape.entity';
 export class ShapesService {
   constructor(
     @InjectRepository(Shape)
-    private shapesRepository: Repository<Shape>
+    private shapesRepository: Repository<Shape>,
+    private tripsService: TripsService
   ) { }
 
   async create(createShapeDto: CreateShapeDto): Promise<Shape> {
@@ -24,7 +26,10 @@ export class ShapesService {
     if (existingShape) 
       throw new ConflictException(`Shape with ID ${createShapeDto.shape_id} and sequence ${createShapeDto.pt_sequence} already exists`)
 
+    const trip = await this.tripsService.findOne(createShapeDto.trip)
+
     const shape = this.shapesRepository.create({
+      trip,
       shape_id: createShapeDto.shape_id,
       pt_sequence: createShapeDto.pt_sequence,
       pt_lat: createShapeDto.pt_lat,

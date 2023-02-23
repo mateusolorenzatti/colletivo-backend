@@ -1,8 +1,11 @@
-import { IsLatitude, IsLongitude, IsNumber, IsOptional } from "class-validator"
+import { IsLatitude, IsLongitude, IsNumber, IsOptional, IsUUID } from "class-validator"
 
 export class CreateShapeDto {
     @IsNumber()
     shape_id: number
+
+    @IsUUID('all', { each: true })
+    trip: string
     
     @IsNumber()
     pt_sequence: number

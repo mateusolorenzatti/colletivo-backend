@@ -1,4 +1,4 @@
-import { IsLatitude, IsLatLong, IsLongitude, IsNumber, IsOptional, Length } from "class-validator"
+import { IsLatitude, IsLatLong, IsLongitude, IsNumber, IsOptional, IsTimeZone, Length } from "class-validator"
 
 export class CreateStopDto {
     @IsOptional()
@@ -35,6 +35,7 @@ export class CreateStopDto {
     parent_station: number
 
     @IsOptional()
+    @IsTimeZone()
     stop_timezone: string
 
     @IsOptional()    

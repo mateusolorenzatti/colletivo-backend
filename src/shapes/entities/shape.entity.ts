@@ -7,7 +7,7 @@ export class Shape {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @ManyToOne((_type) => Trip, trip => trip.shape, { eager: false })
+    @ManyToOne((_type) => Trip, trip => trip.shape, { eager: true })
     trip: Trip
 
     @Column()

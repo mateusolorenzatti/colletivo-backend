@@ -24,8 +24,7 @@ import { StopTimesModule } from './stop-times/stop-times.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_SERVER,
-      //port: parseInt(process.env.DB_PORT, 10),
-      port: 5433,
+      port: parseInt(process.env.DB_SERVER_PORT, 10),
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_SCHEMA,

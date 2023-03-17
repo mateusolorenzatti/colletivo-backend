@@ -9,6 +9,9 @@ async function bootstrap() {
   // Load all application modules
   const app = await NestFactory.create(AppModule)
 
+  // Enable CORS
+  app.enableCors()
+
   // Pipes and Interceptors
   app.useGlobalPipes(new ValidationPipe({
     forbidUnknownValues: false

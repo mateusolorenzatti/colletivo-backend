@@ -60,4 +60,12 @@ export class AuthService {
             throw new UnauthorizedException('Please check your credentials')
         }
     }
+
+    async getUser(username: string): Promise<User> {
+        const user = await this.usersRepository.findOne({ where: { username } })
+
+        delete user.password
+
+        return user
+    }
 }

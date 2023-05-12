@@ -11,7 +11,7 @@ export class Shape {
     trip: Trip
 
     @Column()
-    shape_id: number
+    shape_id: string
     
     @Column()
     pt_sequence: number

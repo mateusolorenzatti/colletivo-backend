@@ -17,7 +17,7 @@ export class ShapesController {
 
   @Get()
   findAll(@Query('shape_id') shape_id: string): Promise<Shape[]> {
-    return this.shapesService.findAll(+shape_id);
+    return this.shapesService.findAll(shape_id);
   }
 
   @Get(':id')

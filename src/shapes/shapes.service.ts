@@ -46,7 +46,7 @@ export class ShapesService {
     return shape
   }
 
-  async findAll(shape_id: number): Promise<Shape[]> {
+  async findAll(shape_id: string): Promise<Shape[]> {
     if(shape_id)
       return await this.shapesRepository.find({ where: { shape_id } })
 

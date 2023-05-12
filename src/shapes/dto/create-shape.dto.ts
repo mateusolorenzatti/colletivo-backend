@@ -1,8 +1,8 @@
-import { IsLatitude, IsLongitude, IsNumber, IsOptional, IsUUID } from "class-validator"
+import { IsLatitude, IsLongitude, IsNumber, IsOptional, IsString, IsUUID } from "class-validator"
 
 export class CreateShapeDto {
-    @IsNumber()
-    shape_id: number
+    @IsString()
+    shape_id: string
 
     @IsUUID('all', { each: true })
     trip: string

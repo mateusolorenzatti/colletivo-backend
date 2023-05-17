@@ -8,13 +8,13 @@ export class Trip {
     @PrimaryGeneratedColumn('uuid')
     id: string
     
-    @ManyToOne((_type) => Route, route => route.trips)
+    @ManyToOne((_type) => Route, route => route.trips, { eager: true })
     route: Route
 
     @OneToMany((_type) => Shape, shape => shape.shape_id)
-    shape: Shape
+    shape: Shape[]
 
-    @OneToMany((_type) => StopTime, stop_time => stop_time.trip)
+    @OneToMany((_type) => StopTime, stop_time => stop_time.trip, { eager: true })
     stop_times: StopTime[]
     
     @Column({ nullable: true })

@@ -7,7 +7,7 @@ export class StopTime {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @ManyToOne((_type) => Trip, trip => trip.stop_times, { eager: true })
+    @ManyToOne((_type) => Trip, trip => trip.stop_times)
     trip: Trip
     
     @ManyToOne((_type) => Stop, stop => stop.stop_times, { eager: true })

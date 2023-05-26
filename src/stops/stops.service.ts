@@ -36,8 +36,14 @@ export class StopsService {
     return stop
   }
 
-  async findAll(): Promise<Stop[]> {
-    return await this.stopsRepository.find()
+  async findAll(limit: number = 25): Promise<Stop[]> {
+    const count = await this.stopsRepository.count()
+    const randomIndex = Math.floor(Math.random() * count)
+
+    return await this.stopsRepository.find({
+      take: limit,
+      skip: randomIndex
+    })
   }
 
   async findOne(id: string): Promise<Stop> {
@@ -80,10 +86,10 @@ export class StopsService {
 
   async remove(id: string) {
     let result
-    
-    try{
+
+    try {
       result = await this.stopsRepository.delete(id)
-    }catch (QueryFailedError){
+    } catch (QueryFailedError) {
       throw new NotFoundException(`Stop with ID ${id} not found`)
     }
 

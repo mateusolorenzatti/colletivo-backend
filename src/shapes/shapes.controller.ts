@@ -4,7 +4,9 @@ import { CreateShapeDto } from './dto/create-shape.dto';
 import { UpdateShapeDto } from './dto/update-shape.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Shape } from './entities/shape.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Shapes')
 @Controller('shapes')
 @UseGuards(AuthGuard())
 export class ShapesController {

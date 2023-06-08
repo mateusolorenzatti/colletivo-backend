@@ -4,7 +4,9 @@ import { CreateStopDto } from './dto/create-stop.dto';
 import { UpdateStopDto } from './dto/update-stop.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Stop } from './entities/stop.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Stops')
 @Controller('stops')
 @UseGuards(AuthGuard())
 export class StopsController {

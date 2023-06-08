@@ -4,7 +4,9 @@ import { AgencyService } from './agency.service';
 import { CreateAgencyDto } from './dto/create-agency.dto';
 import { UpdateAgencyDto } from './dto/update-agency.dto';
 import { Agency } from './entities/agency.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Agency')
 @Controller('agency')
 @UseGuards(AuthGuard())
 export class AgencyController {

@@ -4,7 +4,9 @@ import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
 import { Route } from './entities/route.entity';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Routes')
 @Controller('routes')
 @UseGuards(AuthGuard())
 export class RoutesController {
